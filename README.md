@@ -7,9 +7,9 @@ Announcement! I changed the release date to `unknown` due to business, sorry!
 Overview before release, perfect to use with **nZk** (coming soon):
 
 ```js
-const mg = require("dugen");
+const dugen = require("dugen");
 
-mg.createModule("faqs", {
+dugen.createModule("faqs", {
   "./models": "**MODULE_NAME**.model.js",
   "./services": "**MODULE_NAME**.service.js",
   "./controllers": "**MODULE_NAME**.controller.js",
@@ -18,7 +18,7 @@ mg.createModule("faqs", {
   "./test/cases": "**MODULE_NAME**.spec.js",
 });
 
-mg.deleteModule("faqs", {
+dugen.deleteModule("faqs", {
   "./models": "**MODULE_NAME**.model.js",
   "./services": "**MODULE_NAME**.service.js",
   "./controllers": "**MODULE_NAME**.controller.js",
@@ -27,3 +27,5 @@ mg.deleteModule("faqs", {
   "./test/cases": "**MODULE_NAME**.spec.js",
 });
 ```
+
+more at [examples](./examples).

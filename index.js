@@ -1,94 +1,27 @@
-const mg = (exports = module.exports);
+const dugen = require("./lib/dugen.js");
+const utils = require("./lib/utils.js");
 
-const fs = require("fs");
-const path = require("path");
-
-mg.moduleName = "";
-mg.defaultPattern = "**MODULE_NAME**";
-mg.directoryStructure = {};
-
-mg._isObject = (val) => {
-  if (val === null) {
-    return false;
-  }
-  return typeof val === "function" || typeof val === "object";
+dugen.modifyPattern = (pattern) => {
+  if (utils._isString(pattern))
+    dugen.defaultPattern = pattern || dugen.defaultPattern;
 };
 
-mg._isString = (obj) => {
-  return Object.prototype.toString.call(obj) === "[object String]";
+dugen.deleteModule = (moduleName, directoryStructure) => {
+  dugen.moduleName = moduleName;
+  dugen.directoryStructure = directoryStructure;
+
+  dugen._transpile();
+
+  dugen._deleteModule();
 };
 
-mg._compile = () => {
-  if (this._isObject(mg.directoryStructure)) {
-    return Object.keys(mg.directoryStructure).map((key) => {
-      mg.directoryStructure[key] = mg.directoryStructure[key].replace(
-        mg.defaultPattern,
-        mg.moduleName
-      );
-    });
-  }
+dugen.createModule = (moduleName, directoryStructure) => {
+  dugen.moduleName = moduleName;
+  dugen.directoryStructure = directoryStructure;
 
-  throw new ReferenceError(
-    `Parameter two require object! ${typeof directoryStructure} given.`
-  );
+  dugen._transpile();
+
+  dugen._createModule();
 };
 
-mg._deleteModule = () => {
-  for (var directory in mg.directoryStructure) {
-    const dirPath = directory;
-    const fileName = mg.directoryStructure[directory];
-
-    const modulePath = path.join(dirPath, fileName);
-
-    if (fs.existsSync(modulePath)) {
-      fs.promises
-        .unlink(modulePath)
-        .then(() => console.log(`${modulePath} was deleted successfully.`))
-        .catch((err) => {
-          throw err;
-        });
-    }
-  }
-};
-
-mg._createModule = () => {
-  for (var directory in mg.directoryStructure) {
-    const dirPath = directory;
-    const fileName = mg.directoryStructure[directory];
-
-    const modulePath = path.join(dirPath, fileName);
-
-    if (!fs.existsSync(modulePath)) {
-      fs.promises
-        .writeFile(modulePath, "")
-        .then(() => {
-          console.log(`${modulePath} created successfully.`);
-        })
-        .catch((err) => {
-          throw err;
-        });
-    }
-  }
-};
-
-mg.modifyPattern = (pattern) => {
-  if (mg._isString(pattern)) mg.defaultPattern = pattern || mg.defaultPattern;
-};
-
-mg.deleteModule = (moduleName, directoryStructure) => {
-  mg.moduleName = moduleName;
-  mg.directoryStructure = directoryStructure;
-
-  mg._compile();
-
-  mg._deleteModule();
-};
-
-mg.createModule = (moduleName, directoryStructure) => {
-  mg.moduleName = moduleName;
-  mg.directoryStructure = directoryStructure;
-
-  mg._compile();
-
-  mg._createModule();
-};
+exports = module.exports = dugen;
