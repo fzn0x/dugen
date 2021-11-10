@@ -1,8 +1,10 @@
+Announcement! I changed the release date to `unknown` due to business, sorry!
+
 # DuGen
 
 > An easy usage And simple module generator for your Node.js modular application
 
-Overview before release date `7/11/2021`, perfect to use with **nZk** (coming soon):
+Overview before release, perfect to use with **nZk** (coming soon):
 
 ```js
 const mg = require("dugen");
