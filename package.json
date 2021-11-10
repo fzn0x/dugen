@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fncolon/modugen.git"
+    "url": "git+https://github.com/fncolon/dugen.git"
   },
   "keywords": [
     "module generator",
@@ -15,7 +15,7 @@
   "author": "fncolon",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fncolon/modugen/issues"
+    "url": "https://github.com/fncolon/dugen/issues"
   },
-  "homepage": "https://github.com/fncolon/modugen#readme"
+  "homepage": "https://github.com/fncolon/dugen#readme"
 }
