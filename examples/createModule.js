@@ -15,6 +15,7 @@ dugen.createModule(`${moduleName}`, {
   "./models": {
     source: "**MODULE_NAME**.model.js",
     layout: `test`,
+    overwrite: true,
   },
   "./services": "**MODULE_NAME**.service.js",
   "./controllers": "**MODULE_NAME**.controller.js",
