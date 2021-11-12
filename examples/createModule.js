@@ -11,7 +11,7 @@ if (
   throw new ReferenceError("Module name need to be defined as string!");
 }
 
-dugen.deleteModule(`${moduleName}`, {
+dugen.createModule(`${moduleName}`, {
   "./models": "**MODULE_NAME**.model.js",
   "./services": "**MODULE_NAME**.service.js",
   "./controllers": "**MODULE_NAME**.controller.js",
