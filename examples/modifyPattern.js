@@ -1,4 +1,4 @@
-const dugen = require("dugen");
+const dugen = require("../");
 
 // implement robust string type variable
 let moduleName = process.argv.length >= 2 ? process.argv[2] : undefined;

@@ -1,4 +1,4 @@
-const dugen = require("dugen");
+const dugen = require("../");
 
 // implement robust string type variable
 let moduleName = process.argv.length >= 2 ? process.argv[2] : undefined;
@@ -12,7 +12,10 @@ if (
 }
 
 dugen.createModule(`${moduleName}`, {
-  "./models": "**MODULE_NAME**.model.js",
+  "./models": {
+    source: "**MODULE_NAME**.model.js",
+    layout: `test`,
+  },
   "./services": "**MODULE_NAME**.service.js",
   "./controllers": "**MODULE_NAME**.controller.js",
   "./routes/api": "**MODULE_NAME**.route.js",
