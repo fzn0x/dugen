@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/fncolon/dugen/issues"
   },
-  "homepage": "https://github.com/fncolon/dugen#readme"
+  "homepage": "https://github.com/fncolon/dugen#readme",
+  "dependencies": {
+    "change-case": "^4.1.2"
+  }
 }

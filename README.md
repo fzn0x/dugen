@@ -10,7 +10,15 @@ Overview before release, perfect to use with **nZk** (coming soon):
 const dugen = require("dugen");
 
 dugen.createModule("faqs", {
-  "./models": "**MODULE_NAME**.model.js",
+  "./models": {
+    source: "**MODULE_NAME**.model.js",
+    layout: `function **MODULE_NAME** () {}`,
+    transformCase: {
+      source: "snakeCase", // used for filename
+      layout: "pascalCase", // used for pattern inside layout
+    },
+    overwrite: true,
+  },
   "./services": "**MODULE_NAME**.service.js",
   "./controllers": "**MODULE_NAME**.controller.js",
   "./routes": "**MODULE_NAME**.route.js",
@@ -29,3 +37,21 @@ dugen.deleteModule("faqs", {
 ```
 
 more at [examples](./examples).
+
+## API
+
+List of transform case :
+
+- camelCase =>` "testString"`
+- capitalCase => `"Test String"`
+- constantCase => `"TEST_STRING"`
+- dotCase => `"test.string"`
+- headerCase => `"Test-String"`
+- noCase => `"test string"`
+- paramCase => `"test-string"`
+- pascalCase =>` "TestString"`
+- pathCase => `"test/string"`
+- sentenceCase => `"Test string"`
+- snakeCase => `"test_string"`
+
+Source of transform case API is from [change-case core](https://github.com/blakeembrey/change-case#core)

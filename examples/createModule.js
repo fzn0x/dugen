@@ -14,7 +14,11 @@ if (
 dugen.createModule(`${moduleName}`, {
   "./models": {
     source: "**MODULE_NAME**.model.js",
-    layout: `test`,
+    layout: `function **MODULE_NAME** () {}`,
+    transformCase: {
+      source: "paramCase", // used for filename
+      layout: "pascalCase", // used for pattern inside layout
+    },
     overwrite: true,
   },
   "./services": "**MODULE_NAME**.service.js",
