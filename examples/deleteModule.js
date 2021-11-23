@@ -1,9 +1,9 @@
 const dugen = require("../");
 
-// implement robust string type variable
+// get string type variable
 let moduleName = process.argv.length >= 2 ? process.argv[2] : undefined;
 
-// robust string type checking
+// string type checking
 if (
   typeof moduleName !== "string" &&
   !(moduleName instanceof String) // also check from `String` object
