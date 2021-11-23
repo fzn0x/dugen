@@ -9,15 +9,17 @@ Overview before release, perfect to use with **nZk** (coming soon):
 ```js
 const dugen = require("dugen");
 
+// create module
 dugen.createModule("faqs", {
   "./models": {
     source: "**MODULE_NAME**.model.js",
     layout: `function **MODULE_NAME** () {}`,
     transformCase: {
+      // optional
       source: "snakeCase", // used for filename
       layout: "pascalCase", // used for pattern inside layout
     },
-    overwrite: true,
+    overwrite: true, // default: false
   },
   "./services": "**MODULE_NAME**.service.js",
   "./controllers": "**MODULE_NAME**.controller.js",
@@ -26,6 +28,7 @@ dugen.createModule("faqs", {
   "./test/cases": "**MODULE_NAME**.spec.js",
 });
 
+// delete module
 dugen.deleteModule("faqs", {
   "./models": "**MODULE_NAME**.model.js",
   "./services": "**MODULE_NAME**.service.js",

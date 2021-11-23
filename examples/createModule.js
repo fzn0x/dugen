@@ -16,10 +16,11 @@ dugen.createModule(`${moduleName}`, {
     source: "**MODULE_NAME**.model.js",
     layout: `function **MODULE_NAME** () {}`,
     transformCase: {
-      source: "paramCase", // used for filename
+      // optional
+      source: "snakeCase", // used for filename
       layout: "pascalCase", // used for pattern inside layout
     },
-    overwrite: true,
+    overwrite: true, // default: false
   },
   "./services": "**MODULE_NAME**.service.js",
   "./controllers": "**MODULE_NAME**.controller.js",

@@ -1,7 +1,7 @@
 {
   "name": "dugen",
   "version": "0.0.2",
-  "description": "An easy usage And simple module generator for your Node.js modular application",
+  "description": "Node.js module generator",
   "main": "index.js",
   "repository": {
     "type": "git",
