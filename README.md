@@ -4,7 +4,7 @@ Announcement! I changed the release date to `unknown` due to business, sorry!
 
 > An easy usage And simple module generator for your Node.js modular application
 
-Overview before release, perfect to use with **nZk** (coming soon):
+Overview before release:
 
 ```js
 const dugen = require("dugen");
